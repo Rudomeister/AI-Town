@@ -1,0 +1,288 @@
+
+version: '3.8'
+services:
+
+  ltcusdt_5:
+    build: .
+    image: wave-monitor-ltcusdt
+    container_name: wave-monitor-ltcusdt-5
+    environment:
+      - BYBIT_API_KEY_DEMO=${BYBIT_API_KEY_DEMO}
+      - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
+      - SYMBOL=LTCUSDT
+      - INTERVAL=5
+      - START_DELAY=3
+    volumes:
+      - ./config/config-LTCUSDT-5.json:/app/config.json
+    restart: unless-stopped
+    network_mode: host
+
+  manausdt_5:
+    build: .
+    image: wave-monitor-manausdt
+    container_name: wave-monitor-manausdt-5
+    environment:
+      - BYBIT_API_KEY_DEMO=${BYBIT_API_KEY_DEMO}
+      - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
+      - SYMBOL=MANAUSDT
+      - INTERVAL=5
+      - START_DELAY=0
+    volumes:
+      - ./config/config-MANAUSDT-5.json:/app/config.json
+    restart: unless-stopped
+    network_mode: host
+
+  solusdt_5:
+    build: .
+    image: wave-monitor-solusdt
+    container_name: wave-monitor-solusdt-5
+    environment:
+      - BYBIT_API_KEY_DEMO=${BYBIT_API_KEY_DEMO}
+      - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
+      - SYMBOL=SOLUSDT
+      - INTERVAL=5
+      - START_DELAY=4
+    volumes:
+      - ./config/config-SOLUSDT-5.json:/app/config.json
+    restart: unless-stopped
+    network_mode: host
+
+  xrpusdt_5:
+    build: .
+    image: wave-monitor-xrpusdt
+    container_name: wave-monitor-xrpusdt-5
+    environment:
+      - BYBIT_API_KEY_DEMO=${BYBIT_API_KEY_DEMO}
+      - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
+      - SYMBOL=XRPUSDT
+      - INTERVAL=5
+      - START_DELAY=1
+    volumes:
+      - ./config/config-XRPUSDT-5.json:/app/config.json
+    restart: unless-stopped
+    network_mode: host
+
+  adausdt_5:
+    build: .
+    image: wave-monitor-adausdt
+    container_name: wave-monitor-adausdt-5
+    environment:
+      - BYBIT_API_KEY_DEMO=${BYBIT_API_KEY_DEMO}
+      - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
+      - SYMBOL=ADAUSDT
+      - INTERVAL=5
+      - START_DELAY=2
+    volumes:
+      - ./config/config-ADAUSDT-5.json:/app/config.json
+    restart: unless-stopped
+    network_mode: host
+
+  eosusdt_5:
+    build: .
+    image: wave-monitor-eosusdt
+    container_name: wave-monitor-eosusdt-5
+    environment:
+      - BYBIT_API_KEY_DEMO=${BYBIT_API_KEY_DEMO}
+      - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
+      - SYMBOL=EOSUSDT
+      - INTERVAL=5
+      - START_DELAY=5
+    volumes:
+      - ./config/config-EOSUSDT-5.json:/app/config.json
+    restart: unless-stopped
+    network_mode: host
+
+  btcusdt_5:
+    build: .
+    image: wave-monitor-btcusdt
+    container_name: wave-monitor-btcusdt-5
+    environment:
+      - BYBIT_API_KEY_DEMO=${BYBIT_API_KEY_DEMO}
+      - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
+      - SYMBOL=BTCUSDT
+      - INTERVAL=5
+      - START_DELAY=0
+    volumes:
+      - ./config/config-BTCUSDT-5.json:/app/config.json
+    restart: unless-stopped
+    network_mode: host
+
+  ethusdt_5:
+    build: .
+    image: wave-monitor-ethusdt
+    container_name: wave-monitor-ethusdt-5
+    environment:
+      - BYBIT_API_KEY_DEMO=${BYBIT_API_KEY_DEMO}
+      - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
+      - SYMBOL=ETHUSDT
+      - INTERVAL=5
+      - START_DELAY=2
+    volumes:
+      - ./config/config-ETHUSDT-5.json:/app/config.json
+    restart: unless-stopped
+    network_mode: host
+
+  arbusdt_5:
+    build: .
+    image: wave-monitor-arbusdt
+    container_name: wave-monitor-arbusdt-5
+    environment:
+      - BYBIT_API_KEY_DEMO=${BYBIT_API_KEY_DEMO}
+      - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
+      - SYMBOL=ARBUSDT
+      - INTERVAL=5
+      - START_DELAY=2
+    volumes:
+      - ./config/config-ARBUSDT-5.json:/app/config.json
+    restart: unless-stopped
+    network_mode: host
+
+  dotusdt_5:
+    build: .
+    image: wave-monitor-dotusdt
+    container_name: wave-monitor-dotusdt-5
+    environment:
+      - BYBIT_API_KEY_DEMO=${BYBIT_API_KEY_DEMO}
+      - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
+      - SYMBOL=DOTUSDT
+      - INTERVAL=5
+      - START_DELAY=4
+    volumes:
+      - ./config/config-DOTUSDT-5.json:/app/config.json
+    restart: unless-stopped
+    network_mode: host
+
+  1000pepeusdt_5:
+    build: .
+    image: wave-monitor-1000pepeusdt
+    container_name: wave-monitor-1000pepeusdt-5
+    environment:
+      - BYBIT_API_KEY_DEMO=${BYBIT_API_KEY_DEMO}
+      - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
+      - SYMBOL=1000PEPEUSDT
+      - INTERVAL=5
+      - START_DELAY=4
+    volumes:
+      - ./config/config-1000PEPEUSDT-5.json:/app/config.json
+    restart: unless-stopped
+    network_mode: host
+
+  crousdt_5:
+    build: .
+    image: wave-monitor-crousdt
+    container_name: wave-monitor-crousdt-5
+    environment:
+      - BYBIT_API_KEY_DEMO=${BYBIT_API_KEY_DEMO}
+      - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
+      - SYMBOL=CROUSDT
+      - INTERVAL=5
+      - START_DELAY=4
+    volumes:
+      - ./config/config-CROUSDT-5.json:/app/config.json
+    restart: unless-stopped
+    network_mode: host
+
+  bnbusdt_5:
+    build: .
+    image: wave-monitor-bnbusdt
+    container_name: wave-monitor-bnbusdt-5
+    environment:
+      - BYBIT_API_KEY_DEMO=${BYBIT_API_KEY_DEMO}
+      - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
+      - SYMBOL=BNBUSDT
+      - INTERVAL=5
+      - START_DELAY=5
+    volumes:
+      - ./config/config-BNBUSDT-5.json:/app/config.json
+    restart: unless-stopped
+    network_mode: host
+
+  dogeusdt_5:
+    build: .
+    image: wave-monitor-dogeusdt
+    container_name: wave-monitor-dogeusdt-5
+    environment:
+      - BYBIT_API_KEY_DEMO=${BYBIT_API_KEY_DEMO}
+      - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
+      - SYMBOL=DOGEUSDT
+      - INTERVAL=5
+      - START_DELAY=4
+    volumes:
+      - ./config/config-DOGEUSDT-5.json:/app/config.json
+    restart: unless-stopped
+    network_mode: host
+
+  suiusdt_5:
+    build: .
+    image: wave-monitor-suiusdt
+    container_name: wave-monitor-suiusdt-5
+    environment:
+      - BYBIT_API_KEY_DEMO=${BYBIT_API_KEY_DEMO}
+      - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
+      - SYMBOL=SUIUSDT
+      - INTERVAL=5
+      - START_DELAY=3
+    volumes:
+      - ./config/config-SUIUSDT-5.json:/app/config.json
+    restart: unless-stopped
+    network_mode: host
+
+  1000bonkusdt_5:
+    build: .
+    image: wave-monitor-1000bonkusdt
+    container_name: wave-monitor-1000bonkusdt-5
+    environment:
+      - BYBIT_API_KEY_DEMO=${BYBIT_API_KEY_DEMO}
+      - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
+      - SYMBOL=1000BONKUSDT
+      - INTERVAL=5
+      - START_DELAY=0
+    volumes:
+      - ./config/config-1000BONKUSDT-5.json:/app/config.json
+    restart: unless-stopped
+    network_mode: host
+
+  icpusdt_5:
+    build: .
+    image: wave-monitor-icpusdt
+    container_name: wave-monitor-icpusdt-5
+    environment:
+      - BYBIT_API_KEY_DEMO=${BYBIT_API_KEY_DEMO}
+      - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
+      - SYMBOL=ICPUSDT
+      - INTERVAL=5
+      - START_DELAY=5
+    volumes:
+      - ./config/config-ICPUSDT-5.json:/app/config.json
+    restart: unless-stopped
+    network_mode: host
+
+  mntusdt_5:
+    build: .
+    image: wave-monitor-mntusdt
+    container_name: wave-monitor-mntusdt-5
+    environment:
+      - BYBIT_API_KEY_DEMO=${BYBIT_API_KEY_DEMO}
+      - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
+      - SYMBOL=MNTUSDT
+      - INTERVAL=5
+      - START_DELAY=1
+    volumes:
+      - ./config/config-MNTUSDT-5.json:/app/config.json
+    restart: unless-stopped
+    network_mode: host
+
+  tonusdt_5:
+    build: .
+    image: wave-monitor-tonusdt
+    container_name: wave-monitor-tonusdt-5
+    environment:
+      - BYBIT_API_KEY_DEMO=${BYBIT_API_KEY_DEMO}
+      - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
+      - SYMBOL=TONUSDT
+      - INTERVAL=5
+      - START_DELAY=1
+    volumes:
+      - ./config/config-TONUSDT-5.json:/app/config.json
+    restart: unless-stopped
+    network_mode: host
