@@ -6,7 +6,7 @@ import random
 symbols = [
     "LTCUSDT", "MANAUSDT", "SOLUSDT", "XRPUSDT", "ADAUSDT", "EOSUSDT", "BTCUSDT", "ETHUSDT", "ARBUSDT", "DOTUSDT", "1000PEPEUSDT", "CROUSDT", "BNBUSDT", "DOGEUSDT", "SUIUSDT", "1000BONKUSDT", "ICPUSDT", "MNTUSDT", "TONUSDT"
 ]
-intervals = [5]
+intervals = [15]
 
 # Create config directory if it doesn't exist
 os.makedirs("config", exist_ok=True)
@@ -17,7 +17,7 @@ for symbol in symbols:
         config = {
             "symbol": symbol,
             "interval": interval,
-            "quantity": 100
+            "quantity": 100,
         }
         config_filename = f"config/config-{symbol}-{interval}.json"
         with open(config_filename, "w") as config_file:

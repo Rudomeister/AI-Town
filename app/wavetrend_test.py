@@ -257,6 +257,8 @@ def place_order(symbol, side, leverage, stoploss, takeprofit, qty, price=None, o
             'orderType': order_type,
             'qty': str(qty),
             'timeInForce': time_in_force,
+            'stopLoss': stoploss,
+            'takeProfit': takeprofit,
             'positionIdx': 0  # 0 for One-Way Mode, adjust if using Hedge Mode
         }
         # if price:
