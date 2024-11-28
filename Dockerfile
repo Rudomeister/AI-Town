@@ -8,6 +8,7 @@ COPY ./app/requirements.txt /app/
 RUN apk add --no-cache gcc musl-dev
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install mysql-connector-python
 
 # Kopier resten av prosjektet til Docker-image
 COPY ./app /app/

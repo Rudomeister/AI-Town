@@ -16,8 +16,7 @@ for symbol in symbols:
     for interval in intervals:
         config = {
             "symbol": symbol,
-            "interval": interval,
-            "quantity": 100,
+            "interval": interval
         }
         config_filename = f"config/config-{symbol}-{interval}.json"
         with open(config_filename, "w") as config_file:
@@ -25,14 +24,23 @@ for symbol in symbols:
 
         print(f"Generated {config_filename} for {symbol} at {interval} interval.")
 
-
 # Kombinere med generering av docker-compose.yml
-#!/usr/bin/env python3
-# generate_compose.py
-
 compose_template = """
 version: '3.8'
 services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_wavetrend
+    environment:
+      MYSQL_ROOT_PASSWORD: example-password
+      MYSQL_DATABASE: wavetrend
+      MYSQL_USER: local_teddybear
+      MYSQL_PASSWORD: example_teddybear
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: unless-stopped
 """
 
 for symbol in symbols:
@@ -51,10 +59,21 @@ for symbol in symbols:
       - SYMBOL={symbol}
       - INTERVAL={interval}
       - START_DELAY={random_delay}
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=wavetrend_user
+      - DB_PASSWORD=wavetrend_password
+      - DB_NAME=wavetrend
     volumes:
       - ./config/config-{symbol}-{interval}.json:/app/config.json
     restart: unless-stopped
     network_mode: host
+"""
+
+# Add volumes section for MySQL data persistence
+compose_template += """
+volumes:
+  mysql_data:
 """
 
 # Write docker-compose.yml to file
