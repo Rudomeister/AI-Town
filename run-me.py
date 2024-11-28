@@ -32,15 +32,25 @@ services:
     image: mysql:8.0
     container_name: mysql_wavetrend
     environment:
-      MYSQL_ROOT_PASSWORD: example-password
+      MYSQL_ROOT_PASSWORD: flower
       MYSQL_DATABASE: wavetrend
-      MYSQL_USER: local_teddybear
-      MYSQL_PASSWORD: example_teddybear
+      MYSQL_USER: l-ted
+      MYSQL_PASSWORD: p-ted
     ports:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
     restart: unless-stopped
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: flower
 """
 
 for symbol in symbols:
@@ -61,8 +71,8 @@ for symbol in symbols:
       - START_DELAY={random_delay}
       - DB_HOST=mysql
       - DB_PORT=3306
-      - DB_USER=wavetrend_user
-      - DB_PASSWORD=wavetrend_password
+      - DB_USER=l-ted
+      - DB_PASSWORD=p-ted
       - DB_NAME=wavetrend
     volumes:
       - ./config/config-{symbol}-{interval}.json:/app/config.json

@@ -14,7 +14,8 @@ import hashlib
 import hmac
 import time
 from decimal import Decimal, getcontext
-
+import mysql.connector
+import dotenv
 from dotenv import load_dotenv
 
 # Setup logging
@@ -434,7 +435,29 @@ def monitor_wavetrend():
         # Send the latest signals via MQTT
         send_mqtt_signal(latest)
 
-        
+def save_wavetrend_data(symbol, interval, timestamp, wt1, wt2, wt_diff, overbought, oversold):
+    try:
+        connection = mysql.connector.connect(
+            host="localhost",
+            user="local_teddybear",
+            password="example_teddybear",
+            database="wavetrend"
+        )
+        cursor = connection.cursor()
+
+        query = """
+        INSERT INTO wavetrend_data (symbol, interval, timestamp, wt1, wt2, wt_diff, overbought, oversold)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+        """
+        cursor.execute(query, (symbol, interval, timestamp, wt1, wt2, wt_diff, overbought, oversold))
+        connection.commit()
+        logging.info(f"Saved data for {symbol} at {interval} interval.")
+    except mysql.connector.Error as err:
+        logging.error(f"Error: {err}")
+    finally:
+        if connection.is_connected():
+            cursor.close()
+            connection.close()
 
 
 
@@ -457,5 +480,11 @@ if __name__ == "__main__":
     print(f"Wallet Balance: {balance}")
 
     monitor_wavetrend()
+
+    # Get positions and wallet balance after monitoring
+    positions = get_positions(symbol)
+    balance = get_wallet_balance()
+    print(f"Positions: {positions}")
+    print(f"Wallet Balance: {balance}")
 
 

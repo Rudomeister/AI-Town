@@ -1,6 +1,29 @@
 
 version: '3.8'
 services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_wavetrend
+    environment:
+      MYSQL_ROOT_PASSWORD: flower
+      MYSQL_DATABASE: wavetrend
+      MYSQL_USER: l-ted
+      MYSQL_PASSWORD: p-ted
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: unless-stopped
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: flower
 
   ltcusdt_15:
     build: .
@@ -11,7 +34,12 @@ services:
       - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
       - SYMBOL=LTCUSDT
       - INTERVAL=15
-      - START_DELAY=4
+      - START_DELAY=1
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=l-ted
+      - DB_PASSWORD=p-ted
+      - DB_NAME=wavetrend
     volumes:
       - ./config/config-LTCUSDT-15.json:/app/config.json
     restart: unless-stopped
@@ -26,7 +54,12 @@ services:
       - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
       - SYMBOL=MANAUSDT
       - INTERVAL=15
-      - START_DELAY=2
+      - START_DELAY=4
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=l-ted
+      - DB_PASSWORD=p-ted
+      - DB_NAME=wavetrend
     volumes:
       - ./config/config-MANAUSDT-15.json:/app/config.json
     restart: unless-stopped
@@ -41,7 +74,12 @@ services:
       - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
       - SYMBOL=SOLUSDT
       - INTERVAL=15
-      - START_DELAY=5
+      - START_DELAY=0
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=l-ted
+      - DB_PASSWORD=p-ted
+      - DB_NAME=wavetrend
     volumes:
       - ./config/config-SOLUSDT-15.json:/app/config.json
     restart: unless-stopped
@@ -56,7 +94,12 @@ services:
       - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
       - SYMBOL=XRPUSDT
       - INTERVAL=15
-      - START_DELAY=0
+      - START_DELAY=2
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=l-ted
+      - DB_PASSWORD=p-ted
+      - DB_NAME=wavetrend
     volumes:
       - ./config/config-XRPUSDT-15.json:/app/config.json
     restart: unless-stopped
@@ -71,7 +114,12 @@ services:
       - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
       - SYMBOL=ADAUSDT
       - INTERVAL=15
-      - START_DELAY=2
+      - START_DELAY=1
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=l-ted
+      - DB_PASSWORD=p-ted
+      - DB_NAME=wavetrend
     volumes:
       - ./config/config-ADAUSDT-15.json:/app/config.json
     restart: unless-stopped
@@ -86,7 +134,12 @@ services:
       - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
       - SYMBOL=EOSUSDT
       - INTERVAL=15
-      - START_DELAY=2
+      - START_DELAY=3
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=l-ted
+      - DB_PASSWORD=p-ted
+      - DB_NAME=wavetrend
     volumes:
       - ./config/config-EOSUSDT-15.json:/app/config.json
     restart: unless-stopped
@@ -101,7 +154,12 @@ services:
       - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
       - SYMBOL=BTCUSDT
       - INTERVAL=15
-      - START_DELAY=1
+      - START_DELAY=3
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=l-ted
+      - DB_PASSWORD=p-ted
+      - DB_NAME=wavetrend
     volumes:
       - ./config/config-BTCUSDT-15.json:/app/config.json
     restart: unless-stopped
@@ -116,7 +174,12 @@ services:
       - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
       - SYMBOL=ETHUSDT
       - INTERVAL=15
-      - START_DELAY=1
+      - START_DELAY=3
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=l-ted
+      - DB_PASSWORD=p-ted
+      - DB_NAME=wavetrend
     volumes:
       - ./config/config-ETHUSDT-15.json:/app/config.json
     restart: unless-stopped
@@ -131,7 +194,12 @@ services:
       - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
       - SYMBOL=ARBUSDT
       - INTERVAL=15
-      - START_DELAY=5
+      - START_DELAY=3
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=l-ted
+      - DB_PASSWORD=p-ted
+      - DB_NAME=wavetrend
     volumes:
       - ./config/config-ARBUSDT-15.json:/app/config.json
     restart: unless-stopped
@@ -146,7 +214,12 @@ services:
       - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
       - SYMBOL=DOTUSDT
       - INTERVAL=15
-      - START_DELAY=3
+      - START_DELAY=4
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=l-ted
+      - DB_PASSWORD=p-ted
+      - DB_NAME=wavetrend
     volumes:
       - ./config/config-DOTUSDT-15.json:/app/config.json
     restart: unless-stopped
@@ -161,7 +234,12 @@ services:
       - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
       - SYMBOL=1000PEPEUSDT
       - INTERVAL=15
-      - START_DELAY=4
+      - START_DELAY=3
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=l-ted
+      - DB_PASSWORD=p-ted
+      - DB_NAME=wavetrend
     volumes:
       - ./config/config-1000PEPEUSDT-15.json:/app/config.json
     restart: unless-stopped
@@ -177,6 +255,11 @@ services:
       - SYMBOL=CROUSDT
       - INTERVAL=15
       - START_DELAY=2
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=l-ted
+      - DB_PASSWORD=p-ted
+      - DB_NAME=wavetrend
     volumes:
       - ./config/config-CROUSDT-15.json:/app/config.json
     restart: unless-stopped
@@ -191,7 +274,12 @@ services:
       - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
       - SYMBOL=BNBUSDT
       - INTERVAL=15
-      - START_DELAY=3
+      - START_DELAY=2
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=l-ted
+      - DB_PASSWORD=p-ted
+      - DB_NAME=wavetrend
     volumes:
       - ./config/config-BNBUSDT-15.json:/app/config.json
     restart: unless-stopped
@@ -206,7 +294,12 @@ services:
       - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
       - SYMBOL=DOGEUSDT
       - INTERVAL=15
-      - START_DELAY=3
+      - START_DELAY=5
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=l-ted
+      - DB_PASSWORD=p-ted
+      - DB_NAME=wavetrend
     volumes:
       - ./config/config-DOGEUSDT-15.json:/app/config.json
     restart: unless-stopped
@@ -221,7 +314,12 @@ services:
       - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
       - SYMBOL=SUIUSDT
       - INTERVAL=15
-      - START_DELAY=4
+      - START_DELAY=2
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=l-ted
+      - DB_PASSWORD=p-ted
+      - DB_NAME=wavetrend
     volumes:
       - ./config/config-SUIUSDT-15.json:/app/config.json
     restart: unless-stopped
@@ -236,7 +334,12 @@ services:
       - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
       - SYMBOL=1000BONKUSDT
       - INTERVAL=15
-      - START_DELAY=4
+      - START_DELAY=3
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=l-ted
+      - DB_PASSWORD=p-ted
+      - DB_NAME=wavetrend
     volumes:
       - ./config/config-1000BONKUSDT-15.json:/app/config.json
     restart: unless-stopped
@@ -251,7 +354,12 @@ services:
       - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
       - SYMBOL=ICPUSDT
       - INTERVAL=15
-      - START_DELAY=5
+      - START_DELAY=3
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=l-ted
+      - DB_PASSWORD=p-ted
+      - DB_NAME=wavetrend
     volumes:
       - ./config/config-ICPUSDT-15.json:/app/config.json
     restart: unless-stopped
@@ -266,7 +374,12 @@ services:
       - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
       - SYMBOL=MNTUSDT
       - INTERVAL=15
-      - START_DELAY=0
+      - START_DELAY=1
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=l-ted
+      - DB_PASSWORD=p-ted
+      - DB_NAME=wavetrend
     volumes:
       - ./config/config-MNTUSDT-15.json:/app/config.json
     restart: unless-stopped
@@ -281,8 +394,16 @@ services:
       - BYBIT_SECRET_KEY_DEMO=${BYBIT_SECRET_KEY_DEMO}
       - SYMBOL=TONUSDT
       - INTERVAL=15
-      - START_DELAY=4
+      - START_DELAY=2
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=l-ted
+      - DB_PASSWORD=p-ted
+      - DB_NAME=wavetrend
     volumes:
       - ./config/config-TONUSDT-15.json:/app/config.json
     restart: unless-stopped
     network_mode: host
+
+volumes:
+  mysql_data:
